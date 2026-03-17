@@ -120,8 +120,8 @@ begin
     with f_Q select
         o_lights_L <= "000" when "10000000",
                       "111" when "01000000",
-                      "100" when "00000100",
-                      "110" when "00000010",
+                      "001" when "00000100",
+                      "011" when "00000010",
                       "111" when "00000001",
                       "000" when others;
         
