@@ -108,7 +108,7 @@ begin
     ---------------------------------------------------------------------------------
    --Next State Logic
     f_Q_next(7) <= (f_Q(7) and not i_left and not i_right) 
-                    or (f_Q(6) and not i_left and not i_right) 
+                    or (f_Q(6) and not (i_left and i_right)) 
                     or (f_Q(2) and not i_right)
                     or (f_Q(5) and not i_left);
     f_Q_next(6) <= (f_Q(7) and i_left and i_right)
