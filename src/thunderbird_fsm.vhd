@@ -109,30 +109,30 @@ begin
    --Next State Logic
     f_Q_next(7) <= (f_Q(7) and not i_left and not i_right) 
                     or (f_Q(6) and not i_left and not i_right) 
-                    or (f_Q(3) and not i_right)
-                    or (f_Q(0) and not i_left);
+                    or (f_Q(2) and not i_right)
+                    or (f_Q(5) and not i_left);
     f_Q_next(6) <= (f_Q(7) and i_left and i_right)
                     or (f_Q(6) and i_left and i_right);
     f_Q_next(0) <= (f_Q(7) and i_right and not i_left);
-    f_Q_next(4) <= (f_Q(3));
-    f_Q_next(5) <= (f_Q(4));
-    f_Q_next(3) <= (f_Q(7) and i_left and not i_right)
-                    or (f_Q(0) and i_left);
     f_Q_next(1) <= (f_Q(0));
-    f_Q_next(2) <= (f_Q(1));    
+    f_Q_next(2) <= (f_Q(1));
+    f_Q_next(3) <= (f_Q(7) and i_left and not i_right)
+                    or (f_Q(5) and i_left);
+    f_Q_next(4) <= (f_Q(3));
+    f_Q_next(5) <= (f_Q(4));    
     
     --Output Logic
     with f_Q select
-        o_lights_L <= "001" when "00000100",
-                      "011" when "00000010",
-                      "111" when "00000001",
+        o_lights_L <= "001" when "00001000",
+                      "011" when "00010000",
+                      "111" when "00100000",
                       "111" when "01000000",
                       "000" when others;
         
     with f_Q select  
-        o_lights_R <= "001" when "00100000",
-                      "011" when "00010000",
-                      "111" when "00001000",
+        o_lights_R <= "001" when "00000001",
+                      "011" when "00000010",
+                      "111" when "00000100",
                       "111" when "01000000",
                       "000" when others;
 	
